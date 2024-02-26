@@ -14,8 +14,7 @@ SELECT start FROM events WHERE start BETWEEN '2023-12-01 00:00:00' AND '2023-12-
 SELECT duration FROM `events` WHERE duration > '02:00:00'; (946)
 SELECT duration FROM `events` WHERE duration > '02:45:00'; (823)
 
-- Selezionare tutti gli eventi, mostrando nome, data di inizio, ora di inizio, ora di fine e
- durata totale (1040)
+- Selezionare tutti gli eventi, mostrando nome, data di inizio, ora di inizio, ora di fine e durata totale (1040)
 SELECT name, start, duration FROM `events`; (1040)
 
 - Selezionare tutti gli eventi aggiunti da “Fabiano Lombardo” (id: 1202) (132)
@@ -32,7 +31,6 @@ SELECT * FROM `event_tag` WHERE tag_id=1; (72)
 SELECT * FROM `events` JOIN event_tag ON event_id = events.id WHERE tag_id = 1; (72)
 
 - Selezionare tutti i tag e il prezzo medio degli eventi a loro collegati (11)
-
 SELECT tags.name, events.name, AVG(events.price) FROM tags JOIN event_tag ON event_tag.event_id = tags.id JOIN events ON events.id = event_tag.event_id GROUP BY tags.id, tags.name; (11)
 SELECT tags.id, tags.name, events.name, AVG(events.price) FROM `tags` JOIN event_tag ON event_tag.event_id = tags.id JOIN events ON events.id = event_tag.event_id GROUP BY tags.id; (11) 
 
